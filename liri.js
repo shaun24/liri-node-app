@@ -1,5 +1,6 @@
 
-require('dotenv').config()
+require('dotenv').config();
+var nodeArg = process.argv
 var keys = require("./keys.js");
 var request = require('request');
 require("dotenv").config();
@@ -42,16 +43,23 @@ var MyTweets = tweeting();
 // MyTweets()
 
 
-//spotify-this-song 'song name here'
+// spotify-this-song 'song name here'
 
-function spotifySearch(){
+function spotifySearch(songName){
 
-spotify.search({ type: 'track', query: 'blue' }, function(err, data) {
+spotify.search({ type: 'track', query: songName }, function(err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
-    console.log(data.Artist); 
+    console.log(data); 
+    console.log(spotify.search)
+    console.log(spotify)
 });  
 };
 
-spotifySearch();
+// spotifySearch('sweet home alabama');
+
+
+// spotifySearch();
+
+console.log(spotify.search)
